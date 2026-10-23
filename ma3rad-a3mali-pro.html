@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>استوديو ويب | معرض أعمال وتصميم مواقع</title>
+<style>
+:root{--bg:#0b1220;--panel:#111c2e;--panel2:#17243a;--text:#f4f7fb;--muted:#aebbd0;--accent:#72e0c1;--accent2:#8ab4ff;--line:#28364d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 80% 0%,#1c3150 0,transparent 35%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1080px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#0b1220eF;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:68px}
+.logo{font-weight:900;letter-spacing:.2px}.logo span{color:var(--accent)}
+nav{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem;color:var(--muted)}
+nav a:hover{color:var(--accent)}
+.hero{padding:62px 0 44px;display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid #35675e;background:#16352f;border-radius:99px;color:var(--accent);font-size:.85rem}
+h1{font-size:clamp(2.1rem,6vw,4rem);line-height:1.15;margin:18px 0}
+.grad{background:linear-gradient(90deg,var(--accent),var(--accent2));color:transparent;background-clip:text}
+.lead{color:var(--muted);font-size:1.08rem;max-width:650px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;border:1px solid var(--line);font-weight:750;cursor:pointer;font:inherit}
+.btn.primary{background:var(--accent);color:#08221c;border-color:var(--accent)}
+.btn.secondary{background:var(--panel);color:var(--text)}
+.btn:hover{transform:translateY(-1px)}
+.preview{background:linear-gradient(145deg,#172b43,#101827);border:1px solid #344761;border-radius:24px;padding:18px;box-shadow:0 25px 60px #0004}
+.window{border:1px solid #3a4d65;background:#0b1422;border-radius:15px;padding:12px}
+.dots{display:flex;gap:5px;margin-bottom:15px}.dots i{width:7px;height:7px;border-radius:50%;background:#51627a}
+.mocktitle{font-size:1.4rem;font-weight:900}.mocktitle b{color:var(--accent)}
+.mockgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
+.mockcard{height:70px;border:1px solid #30425b;border-radius:10px;background:linear-gradient(135deg,#1c344b,#142034);padding:9px;font-size:.8rem;color:#d8e4f3}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0 34px}
+.stat{background:#101b2b;border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+.stat strong{display:block;color:var(--accent);font-size:1.25rem}.stat span{font-size:.82rem;color:var(--muted)}
+section{padding:36px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:20px}
+h2{font-size:clamp(1.5rem,4vw,2.1rem);margin:0}
+.sub{color:var(--muted);margin:6px 0 0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{background:linear-gradient(160deg,var(--panel),#0f1827);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.art{height:150px;padding:15px;display:flex;align-items:end;background:linear-gradient(135deg,#244b58,#17243a)}
+.art.store{background:linear-gradient(135deg,#574b85,#17243a)}
+.art.barber{background:linear-gradient(135deg,#6a4934,#17243a)}
+.art .mini{width:100%;border-radius:12px;background:#09111ddc;border:1px solid #ffffff2b;padding:12px}
+.mini strong{display:block;font-size:1.1rem}.mini small{color:#d2dfef}
+.cardbody{padding:17px}.tag{display:inline-block;color:var(--accent);background:#16352f;border-radius:7px;padding:3px 8px;font-size:.75rem}
+.card h3{margin:10px 0 5px}.card p{color:var(--muted);font-size:.92rem;margin:0 0 14px}
+.textlink{color:var(--accent2);font-weight:750}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.step{padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+.num{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#203b4b;color:var(--accent);font-weight:900}
+.step h3{margin:10px 0 5px}.step p{color:var(--muted);margin:0;font-size:.94rem}
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
+.contactbox,.formbox{border:1px solid var(--line);border-radius:18px;padding:20px;background:var(--panel)}
+.contactbox p{color:var(--muted)}
+label{display:block;font-weight:700;margin:12px 0 5px}
+input,select,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid #3a4a61;background:#0b1422;color:var(--text);font:inherit}
+textarea{min-height:100px;resize:vertical}
+.note{font-size:.83rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:25px 0;margin-top:30px;color:var(--muted);font-size:.88rem}
+.notice{padding:12px 14px;border:1px solid #6c5931;background:#302718;border-radius:12px;color:#f5dfaa;font-size:.88rem}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:42px}.preview{max-width:520px}.cards{grid-template-columns:1fr}.art{height:170px}.steps{grid-template-columns:1fr}.contact{grid-template-columns:1fr}.stats{gap:7px}.stat{padding:10px 5px}nav{gap:10px;font-size:.82rem}.nav{align-items:flex-start;padding:12px 0;flex-direction:column}.section-head{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#home">استوديو<span>ويب.</span></a>
+    <nav aria-label="التنقل الرئيسي">
+      <a href="#work">أعمالي</a><a href="#services">الخدمات</a><a href="#pricing">الأسعار</a><a href="#steps">طريقة العمل</a><a href="#contact">اطلب موقعًا</a>
+    </nav>
+  </div>
+</header>
+<main id="home" class="wrap">
+  <section class="hero">
+    <div>
+      <span class="pill">● تصميم مواقع بسيطة ومتجاوبة</span>
+      <h1>نحوّل فكرتك إلى <span class="grad">موقع ويب جميل</span></h1>
+      <p class="lead">أصمّم صفحات واضحة وسريعة للمحلات والمشاريع الصغيرة، تعمل على الهاتف وتعرض خدماتك ومنتجاتك بطريقة مرتّبة.</p>
+      <div class="actions">
+        <a class="btn primary" href="#contact">اطلب تصميمًا</a>
+        <a class="btn secondary" href="#work">شاهد نماذج الأعمال ↓</a>
+        <a class="btn secondary" id="heroWhatsApp" href="#contact">💬 تواصل واتساب</a>
+      </div>
+    </div>
+    <div class="preview" aria-label="معاينة شكل موقع">
+      <div class="window">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <div class="mocktitle">فكرتك، <b>بشكل أفضل.</b></div>
+        <div style="color:#aebbd0;font-size:.86rem;margin-top:5px">موقع بسيط لمشروعك يبدأ من هنا.</div>
+        <div class="mockgrid"><div class="mockcard">✦ تصميم أنيق<br><small>متناسق وواضح</small></div><div class="mockcard">▣ مناسب للهاتف<br><small>كل الشاشات</small></div><div class="mockcard">↗ عرض خدماتك<br><small>بسهولة</small></div><div class="mockcard">♡ حسب طلبك<br><small>ألوانك ومحتواك</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><strong>📱</strong><span>مناسب للهاتف</span></div>
+    <div class="stat"><strong>⚡</strong><span>خفيف وسريع</span></div>
+    <div class="stat"><strong>◎</strong><span>تصميم حسب الطلب</span></div>
+  </div>
+
+  <section id="work">
+    <div class="section-head"><div><h2>نماذج من أعمالي</h2><p class="sub">هذه نماذج تجريبية للعرض، وليست مواقع لعملاء حقيقيين.</p></div></div>
+    <div class="cards">
+      <article class="card">
+        <div class="art"><div class="mini"><strong>TECH ZONE</strong><small>هواتف • إكسسوارات • عروض</small></div></div>
+        <div class="cardbody"><span class="tag">متجر تجريبي</span><h3>متجر هواتف</h3><p>صفحة لعرض الأجهزة والأسعار وطرق التواصل مع المحل.</p><a class="textlink" href="#contact" data-project="متجر هواتف">اطلب نموذجًا مشابهًا ↗</a></div>
+      </article>
+      <article class="card">
+        <div class="art store"><div class="mini"><strong>STYLE HOUSE</strong><small>اختيارات جديدة كل أسبوع</small></div></div>
+        <div class="cardbody"><span class="tag">صفحة منتجات</span><h3>متجر ملابس</h3><p>واجهة مرتّبة لعرض الملابس والمقاسات ومعلومات الطلب.</p><a class="textlink" href="#contact" data-project="متجر ملابس">اطلب نموذجًا مشابهًا ↗</a></div>
+      </article>
+      <article class="card">
+        <div class="art barber"><div class="mini"><strong>THE CORNER</strong><small>قصّات عصرية • احجز موعدك</small></div></div>
+        <div class="cardbody"><span class="tag">صفحة خدمات</span><h3>حلاق أو مشروع محلي</h3><p>صفحة تعرض الخدمات والمواعيد والموقع ووسيلة التواصل.</p><a class="textlink" href="#contact" data-project="صفحة مشروع محلي">اطلب نموذجًا مشابهًا ↗</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-head"><div><h2>شن نقدر نقدّم لك؟</h2><p class="sub">خدمات واضحة للمشاريع الصغيرة.</p></div></div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>صفحة تعريفية</h3><p>اسم المشروع، وصف مختصر، صور، ساعات العمل وطرق التواصل.</p></div>
+      <div class="step"><div class="num">02</div><h3>عرض المنتجات</h3><p>بطاقات للمنتجات مع الأسعار والتفاصيل التي يزوّدني بها العميل.</p></div>
+      <div class="step"><div class="num">03</div><h3>تعديل التصميم</h3><p>ألوان وخطوط وترتيب يناسب هوية المشروع، بعد الاتفاق على المطلوب.</p></div>
+    </div>
+  </section>
+
+
+  <section id="pricing">
+    <div class="section-head"><div><h2>باقات تجريبية</h2><p class="sub">أسعار مقترحة للتعديل حسب وقتك وصعوبة الطلب؛ اتفق مع العميل قبل البدء.</p></div></div>
+    <div class="cards">
+      <article class="card"><div class="cardbody"><span class="tag">بداية</span><h3>صفحة بسيطة</h3><p>تعريف بالمشروع، معلومات التواصل، وألوان أساسية.</p><strong style="font-size:1.35rem;color:var(--accent)">من 20 د.ل</strong><p class="note">مثال تدريبي للسعر، عدّله حسب السوق والجهد.</p><a class="textlink" href="#contact" data-project="صفحة مشروع محلي">اطلب هذه الباقة ↗</a></div></article>
+      <article class="card"><div class="cardbody"><span class="tag">الأكثر مرونة</span><h3>صفحة منتجات</h3><p>عرض عدد محدود من المنتجات مع السعر والوصف.</p><strong style="font-size:1.35rem;color:var(--accent)">من 35 د.ل</strong><p class="note">مثال تدريبي للسعر، لا يشمل استضافة مدفوعة.</p><a class="textlink" href="#contact" data-project="متجر هواتف">اطلب هذه الباقة ↗</a></div></article>
+      <article class="card"><div class="cardbody"><span class="tag">حسب الطلب</span><h3>موقع متعدد الأقسام</h3><p>تصميم أوسع مع عدة أقسام وتعديلات متفق عليها.</p><strong style="font-size:1.35rem;color:var(--accent)">نتفق على السعر</strong><p class="note">يتحدد السعر بعد معرفة عدد الصفحات والمميزات.</p><a class="textlink" href="#contact" data-project="موقع متعدد الأقسام">اطلب هذه الباقة ↗</a></div></article>
+    </div>
+  </section>
+
+  <section id="steps">
+    <div class="section-head"><div><h2>طريقة العمل</h2><p class="sub">خطوات بسيطة من أول رسالة حتى التسليم.</p></div></div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>نتفق على التفاصيل</h3><p>تشرح فكرتك وتوفّر الاسم والصور والنصوص والأسعار الصحيحة.</p></div>
+      <div class="step"><div class="num">2</div><h3>أجهّز معاينة</h3><p>أرسل نموذجًا للمراجعة، ثم نجري التعديلات المتفق عليها.</p></div>
+      <div class="step"><div class="num">3</div><h3>التسليم</h3><p>نتفق مسبقًا على السعر وطريقة الدفع والتسليم. الاستضافة واسم النطاق قد تكون لهما تكلفة منفصلة.</p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-head"><div><h2>اطلب تصميم موقع</h2><p class="sub">اكتب تفاصيل طلبك، وسيفتح هاتفك رسالة جاهزة للمشاركة.</p></div></div>
+    <div class="contact">
+      <div class="contactbox">
+        <h3 style="margin-top:0">خلّينا نبدأ بفكرتك</h3>
+        <p>هذا المعرض نموذج أولي. عدّل الاسم وبيانات التواصل قبل نشره، ولا تضع معلومات شخصية لا تريد مشاركتها.</p>
+        <div class="notice">قبل النشر: استبدل رقم واتساب التجريبي في الكود برقمك بصيغة دولية من دون + أو مسافات. لا تنشر رقمك الشخصي إلا بموافقتك؛ يمكنك استخدام رقم مخصص أو رقم ولي أمرك بموافقته.</div>
+        <p class="note">يمكنك الاتفاق مع العميل على الدفع برصيد ليبيانا أو المدار إذا وافق الطرفان، وتحقّق من وصول الرصيد قبل تسليم النسخة النهائية.</p>
+      </div>
+      <form class="formbox" id="requestForm">
+        <label for="name">اسمك أو اسم المشروع</label>
+        <input id="name" name="name" placeholder="مثال: متجر النور" required maxlength="80">
+        <label for="kind">نوع الموقع</label>
+        <select id="kind" name="kind"><option>متجر هواتف</option><option>متجر ملابس</option><option>صفحة مشروع محلي</option><option>موقع آخر</option></select>
+        <label for="details">شن تبي يكون في الموقع؟</label>
+        <textarea id="details" name="details" placeholder="اكتب وصفًا مختصرًا للموقع المطلوب..." required maxlength="700"></textarea>
+        <label for="payment">طريقة الدفع المفضّلة (للاتفاق فقط)</label>
+        <select id="payment" name="payment"><option>رصيد ليبيانا</option><option>رصيد المدار</option><option>نتفق لاحقًا</option></select>
+        <button class="btn primary" type="submit" style="width:100%;margin-top:16px">أرسل طلبك عبر واتساب</button>
+        <p class="note">سيفتح واتساب برسالة جاهزة؛ راجعها واضغط إرسال بنفسك. إذا لم يتوفر واتساب، سيعرض الهاتف خيارات المشاركة.</p>
+      </form>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>© <span id="year"></span> استوديو ويب — معرض أعمال تجريبي</span><a href="#home">العودة للأعلى ↑</a></div><p>استبدل الاسم والنماذج بمعلوماتك وأعمالك الحقيقية قبل استخدام الموقع تجاريًا.</p></div></footer>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.querySelectorAll('[data-project]').forEach(link => link.addEventListener('click', () => {
+  const kind = document.getElementById('kind');
+  const match = [...kind.options].find(o => o.textContent === link.dataset.project);
+  if (match) kind.value = match.value;
+}));
+// غيّر هذا الرقم إلى رقم واتساب الذي وافقت على نشره، بصيغة دولية دون + أو مسافات.
+const WHATSAPP_NUMBER = "218XXXXXXXXX";
+function openWhatsApp(message){
+  if (WHATSAPP_NUMBER.includes("X")) {
+    alert("قبل الاستخدام، افتح ملف HTML وابحث عن 218XXXXXXXXX واستبدله برقم واتساب الصحيح بصيغة دولية دون + أو مسافات.");
+    if (navigator.share) navigator.share({title:"طلب تصميم موقع", text:message}).catch(()=>{});
+    return;
+  }
+  window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message), "_blank", "noopener");
+}
+document.getElementById('heroWhatsApp').addEventListener('click', function(e){
+  e.preventDefault();
+  openWhatsApp("السلام عليكم، نبي نستفسر عن تصميم موقع ويب.");
+});
+document.getElementById('requestForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const data = new FormData(this);
+  const message = `السلام عليكم، نبي نستفسر عن تصميم موقع ويب.\\nاسم المشروع: ${data.get('name')}\\nنوع الموقع: ${data.get('kind')}\\nالتفاصيل: ${data.get('details')}\\nطريقة الدفع المفضلة: ${data.get('payment')}\\n\\nنبي نتفق على السعر والتسليم قبل بداية العمل.`;
+  openWhatsApp(message);
+});
+</script>
+</body>
+</html>
